@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+:root{
+  --color-primary: #73C8A9;
+  --color-secondary: #373B44;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /*  1rem = 10px, how? 10px/16px = 62.5%, being 16px the browser default size */
+}
+
+
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+  line-height: 1.6;
+  font-family: 'Bangers', cursive;
+  background-image: linear-gradient(to right , var(--color-primary), var(--color-secondary));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.title {
+  padding: 3rem 0;
+  text-align: center;
+  letter-spacing: .2rem;
+}
+
+.content {
+  display: flex;
+  max-width: 120rem;
+  background-color: white;
+  
+  &__form {
+    flex: 0 0 50%;
+    color: #373B44;
+  }
+
+  &__appointment {
+    flex: 1;
+    background-color: blue;
+  }
+
+  &__input {
+    flex: 0 0 40%;
+    background-color: greenyellow;
+  }
+}
+
+
+input[type="date"],
+input[type="time"] {
+  // height: 68px;
+    padding: 6px 10px;
+    // background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+.lista-citas .media {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 3rem;
+}
+
+.lista-citas .media:last-of-type{
+  border-bottom: 0;
+}
+.lista-citas .media-body p {
+  margin:0;
+}
+.lista-citas .media-body button {
+  margin-top: 1rem!important;
+}
+.lista-citas .media-body span {
+  font-weight: bold;
+}
+
+// label {
+//   color: white;
+// }
+
+.cita {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid #e1e1e1;
+  color: black;
+}
+
+.cita p {
+  font-weight: bold;
+  margin-bottom: .8rem;
+}
+.cita p span {
+  font-weight: normal;
+
+}
+.cita:first-of-type {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.cita:last-of-type {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.button.eliminar,
+.button.eliminar:hover {
+  background-color: #c10059;
+  color: white;
+  margin-top: 2rem;
+}
+
+.alerta-error {
+  background-color: white;
+  color: red;
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family:  'Staatliches', cursive;
+} 
