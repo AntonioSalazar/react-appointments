@@ -1,7 +1,24 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
  
 
+
 const Form = () => {
+    //create the state of the appointments
+    
+    const [appointment, setAppointment ] = useState({
+        pet: '',
+        owner: '',
+        date: '',
+        hour: '',
+        symptoms: ''
+    });
+    
+    //this function will get executed each time the user writes something in the input tag
+    const setAppointmentState = () => {
+        console.log('writing');
+    }
+
+
     return ( 
         <Fragment>
             <h2>Create an appointment</h2>
@@ -12,6 +29,7 @@ const Form = () => {
                     name="pet"
                     className='u-full-width'
                     placeholder="Name of your pet"
+                    onChange={setAppointmentState}
                 />
 
                 <label>Name of the owner:</label>
@@ -20,6 +38,7 @@ const Form = () => {
                     name="owner"
                     className='u-full-width'
                     placeholder="Name of the owner"
+                    onChange={setAppointmentState}
                 />
 
                 <label>Date:</label>
@@ -27,6 +46,7 @@ const Form = () => {
                     type="date"
                     name="date"
                     className='u-full-width'
+                    onChange={setAppointmentState}
                 />
 
                 <label>Hour:</label>
@@ -34,12 +54,14 @@ const Form = () => {
                     type="time"
                     name="hour"
                     className='u-full-width'
+                    onChange={setAppointmentState}
                 />
 
                 <label>Symptopms</label>
                 <textarea
                     className='u-full-width'
                     name="symptoms"
+                    onChange={setAppointmentState}
                 ></textarea>
 
                 <button
