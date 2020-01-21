@@ -42,7 +42,7 @@ body {
 .content {
   display: flex;
   max-width: 120rem;
-  background-color: white;
+  background-color: orange;
   
   &__form {
     flex: 0 0 50%;
@@ -123,7 +123,7 @@ input[type="time"] {
   margin-top: 2rem;
 }
 
-.alerta-error {
+.error-alert {
   background-color: white;
   color: red;
   padding: 1rem;

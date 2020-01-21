@@ -1,8 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Form from './components/Form';
 
 
+
 function App() {
+
+  //Appointments Array state
+  const [appointmentsArray, setAppointmentsArray] = useState([]);
+
+
+  //Function that takes current appointments and add's the new one
+  const createAppointment = appointment => {
+    setAppointmentsArray([
+      ...appointmentsArray,
+      appointment
+    ])
+  }
+
   return (
     <Fragment>    
       <h1 className='title'>Appointments Administrator</h1> 
@@ -11,7 +25,9 @@ function App() {
 
         <div className='content'>
           <div className='content__form'>
-            <Form />
+            <Form 
+              createAppointment={createAppointment}
+            />
           </div>
           <div className="content__appointment">
             <p>  

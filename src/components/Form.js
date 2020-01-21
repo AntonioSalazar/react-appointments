@@ -1,8 +1,8 @@
 import React, {Fragment, useState} from 'react';
- 
+import uuid from 'uuid/v4'
 
 
-const Form = () => {
+const Form = ({createAppointment}) => {
     //create the state of the appointments
     
     const [appointment, setAppointment ] = useState({
@@ -12,6 +12,10 @@ const Form = () => {
         hour: '',
         symptoms: ''
     });
+
+    //Error state
+
+    const [error, setError] = useState(false);
     
     //this function will get executed each time the user writes something in the input tag
     const setAppointmentState = e => {
@@ -32,18 +36,38 @@ const Form = () => {
 
         //Validate the form
 
+        if(pet.trim() === "" || owner.trim() === "" || date.trim() === "" || hour.trim() === "" || symptoms.trim() === ""){
+            setError(true)
+            return;
+        }
+
+        //removing error previous message 
+
+        setError(false);
+
         //Assign an ID
+        appointment.id = uuid();
 
         //Create the appointment
+        createAppointment(appointment);
 
         //Set the form to blank
-        
+
+        setAppointment({
+            pet: '',
+            owner: '',
+            date: '',
+            hour: '',
+            symptoms: ''
+        })
     }
 
 
     return ( 
         <Fragment>
             <h2>Create an appointment</h2>
+
+            { error ? <p className="error-alert">All the fields are required</p>            : null}
             <form
                 onSubmit={submitAppointment}
             >
