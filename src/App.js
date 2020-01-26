@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Form from './components/Form';
 import Appointment from './components/Appointment';
 
@@ -6,8 +6,24 @@ import Appointment from './components/Appointment';
 
 function App() {
 
+  //Appointments in local storage
+  let initialAppointments = JSON.parse(localStorage.getItem('appointment'));
+  if(!initialAppointments) {
+    initialAppointments = [];
+  }
+
   //Appointments Array state
-  const [appointmentsArray, setAppointmentsArray] = useState([]);
+  const [appointmentsArray, setAppointmentsArray] = useState(initialAppointments)
+
+  //UseEffect to perform some action when the state changes
+  useEffect( () => {
+    let initialAppointments = JSON.parse(localStorage.getItem('appointment'));
+    if(initialAppointments){
+      localStorage.setItem('appointents', JSON.stringify(appointmentsArray))
+    } else{
+      localStorage.setItem("appointments", JSON.stringify([]))
+    }
+  }, [ appointmentsArray])
 
 
   //Function that takes current appointments and add's the new one
@@ -25,6 +41,9 @@ function App() {
     setAppointmentsArray(apptArrayWithoutDeleted);
   }
 
+  //Conditional rendering
+  const title = appointmentsArray.length === 0 ? "You don't have any appointments" : "Manage your appointments"
+
   return (
     <Fragment>    
       <h1 className='title'>Appointments Administrator</h1> 
@@ -38,7 +57,7 @@ function App() {
             />
           </div>
           <div className="content__appointment">
-            <h2>Your appointments:</h2>
+            <h2>{title}</h2>
             {appointmentsArray.map(appointment => (
               <Appointment 
                 key={appointment.id}
