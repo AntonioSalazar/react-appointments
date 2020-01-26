@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Form from './components/Form';
+import Appointment from './components/Appointment';
 
 
 
@@ -30,10 +31,13 @@ function App() {
             />
           </div>
           <div className="content__appointment">
-            <p>  
-              second half
-            </p>
-            <p>Loremafa afa a afdafa fa dsa s</p>
+            <h2>Your appointments:</h2>
+            {appointmentsArray.map(appointment => (
+              <Appointment 
+                key={appointment.id}
+                appointment={appointment}
+              />
+            ))}
           </div>
         </div>
         
