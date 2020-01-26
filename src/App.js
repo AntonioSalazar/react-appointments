@@ -18,6 +18,13 @@ function App() {
     ])
   }
 
+  //Function that deletes an individual appointment
+
+  const deleteAppointment = id => {
+    const apptArrayWithoutDeleted = appointmentsArray.filter(appointment => appointment.id !== id);
+    setAppointmentsArray(apptArrayWithoutDeleted);
+  }
+
   return (
     <Fragment>    
       <h1 className='title'>Appointments Administrator</h1> 
@@ -36,6 +43,7 @@ function App() {
               <Appointment 
                 key={appointment.id}
                 appointment={appointment}
+                deleteAppointment={deleteAppointment}
               />
             ))}
           </div>
