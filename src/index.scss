@@ -109,7 +109,9 @@ input[type="time"] {
 // }
 
 .appointment {
-  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
   background: white;
   border-bottom: 1px solid #e1e1e1;
   color: black;
@@ -117,7 +119,7 @@ input[type="time"] {
 
 .appointment p {
   font-weight: bold;
-  margin-bottom: .8rem;
+  margin: 1rem;
 }
 .appointment p span {
   font-weight: normal;
@@ -135,7 +137,8 @@ input[type="time"] {
 .button.delete:hover {
   background-color: #c10059;
   color: white;
-  margin-top: 2rem;
+  align-self: center;
+  width: 400px;
 }
 
 .error-alert {
